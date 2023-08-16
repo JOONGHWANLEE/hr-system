@@ -5,7 +5,7 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
-<div class="container-fluid" layout:fragment="content">
+<div class="container-fluid" layout:fragment="content" style="max-width: 1440px;">
         <!--  Row 1 -->
         <div class="row">
           <div class="col-lg-12 d-flex align-items-strech">
@@ -18,208 +18,142 @@
                   
                 </div>
                 <div id="chart"></div>
+                
+                <div class="row" style="margin-top:20px;">
+                <div class="col-lg-2">
+                	<div class="card overflow-hidden">
+                		<div class="card-body p-3">
+                    		<h5 class="card-title mb-6 fw-semibold">출근 인원</h5>
+                    		<div class="row align-items-center" style="justify-content: space-between">
+                      			<div class="col-8">
+                        			<h4 class="fw-semibold mb-3">15 명</h4>
+                      			</div>
+                    			<div style="width:25px; height:25px; background-color:#7599FF; margin-right:15px; margin-bottom:10px;"></div>
+                    		</div>
+                  		</div>
+                	</div>
+                </div>
+                
+                <div class="col-lg-2">
+                	<div class="card overflow-hidden">
+                		<div class="card-body p-3">
+                    		<h5 class="card-title mb-6 fw-semibold">휴가 인원</h5>
+                    		<div class="row align-items-center" style="justify-content: space-between">
+                      			<div class="col-8">
+                        			<h4 class="fw-semibold mb-3">0 명</h4>
+                      			</div>
+                      			<div style="width:25px; height:25px; background-color:#64C8FF; margin-right:15px; margin-bottom:10px;"></div>
+                    		</div>
+                  		</div>
+                	</div>
+                </div>
+                
+                <div class="col-lg-2">
+                	<div class="card overflow-hidden">
+                		<div class="card-body p-3">
+                    		<h5 class="card-title mb-6 fw-semibold">연/월차 인원</h5>
+                    		<div class="row align-items-center" style="justify-content: space-between">
+                      			<div class="col-8">
+                        			<h4 class="fw-semibold mb-3">1 명</h4>
+                      			</div>
+                      			<div style="width:25px; height:25px; background-color:#433d98; margin-right:15px; margin-bottom:10px;"></div>
+                    		</div>
+                  		</div>
+                	</div>
+                </div>
+                
+                <div class="col-lg-2">
+                	<div class="card overflow-hidden">
+                		<div class="card-body p-3">
+                    		<h5 class="card-title mb-6 fw-semibold">출장 인원</h5>
+                    		<div class="row align-items-center" style="justify-content: space-between">
+                      			<div class="col-8">
+                        			<h4 class="fw-semibold mb-3">2 명</h4>
+                      			</div>
+                      			<div style="width:25px; height:25px; background-color:#97499e; margin-right:15px; margin-bottom:10px;"></div>
+                    		</div>
+                  		</div>
+                	</div>
+                </div>
+                
+                <div class="col-lg-2">
+                	<div class="card overflow-hidden">
+                		<div class="card-body p-3">
+                    		<h5 class="card-title mb-6 fw-semibold">퇴근 인원</h5>
+                    		<div class="row align-items-center" style="justify-content: space-between">
+                      			<div class="col-8">
+                        			<h4 class="fw-semibold mb-3">1 명</h4>
+                      			</div>
+                      			<div style="width:25px; height:25px; background-color:#f2bb07; margin-right:15px; margin-bottom:10px;"></div>
+                    		</div>
+                  		</div>
+                	</div>
+                </div>
+                
+                <div class="col-lg-2">
+                	<div class="card overflow-hidden">
+                		<div class="card-body p-3">
+                    		<h5 class="card-title mb-6 fw-semibold">지각 인원</h5>
+                    		<div class="row align-items-center" style="justify-content: space-between">
+                      			<div class="col-8">
+                        			<h4 class="fw-semibold mb-3">3 명</h4>
+                      			</div>
+                      			<div style="width:25px; height:25px; background-color:#c5cdd7; margin-right:15px; margin-bottom:10px;"></div>
+                    		</div>
+                  		</div>
+                	</div>
+                </div>
+                
+              </div>
+              </div>
               </div>
             </div>
           </div>
           
-        </div>
+        
+        
+        
         <div class="row">
-        	<div class="col-lg-3">
-                <!-- Yearly Breakup -->
-                <div class="card overflow-hidden">
-                  <div class="card-body p-4">
-                    <h5 class="card-title mb-9 fw-semibold">출근 인원</h5>
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <h4 class="fw-semibold mb-3">60 명</h4>
-                        <div class="d-flex align-items-center mb-3">
-                          <span
-                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
-                            <i class="ti ti-arrow-up-left text-success"></i>
-                          </span>
-                          <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                          <p class="fs-3 mb-0">last year</p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <div class="me-4">
-                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                          <div>
-                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <!-- Yearly Breakup -->
-                <div class="card overflow-hidden">
-                  <div class="card-body p-4">
-                    <h5 class="card-title mb-9 fw-semibold">휴가 인원</h5>
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <h4 class="fw-semibold mb-3">12 명</h4>
-                        <div class="d-flex align-items-center mb-3">
-                          <span
-                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
-                            <i class="ti ti-arrow-up-left text-success"></i>
-                          </span>
-                          <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                          <p class="fs-3 mb-0">last year</p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <div class="me-4">
-                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                          <div>
-                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <!-- Yearly Breakup -->
-                <div class="card overflow-hidden">
-                  <div class="card-body p-4">
-                    <h5 class="card-title mb-9 fw-semibold">연/월차 인원</h5>
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <h4 class="fw-semibold mb-3">4 명</h4>
-                        <div class="d-flex align-items-center mb-3">
-                          <span
-                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
-                            <i class="ti ti-arrow-up-left text-success"></i>
-                          </span>
-                          <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                          <p class="fs-3 mb-0">last year</p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <div class="me-4">
-                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                          <div>
-                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-lg-3">
-                <!-- Yearly Breakup -->
-                <div class="card overflow-hidden">
-                  <div class="card-body p-4">
-                    <h5 class="card-title mb-9 fw-semibold">출장 인원</h5>
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <h4 class="fw-semibold mb-3">4 명</h4>
-                        <div class="d-flex align-items-center mb-3">
-                          <span
-                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
-                            <i class="ti ti-arrow-up-left text-success"></i>
-                          </span>
-                          <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                          <p class="fs-3 mb-0">last year</p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <div class="me-4">
-                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                          <div>
-                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-        </div>
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="col-lg-5 d-flex align-items-stretch">
             <div class="card w-100">
               <div class="card-body p-4">
-                <div class="mb-4">
-                  <h5 class="card-title fw-semibold">결재 현황</h5>
+                <h5 class="card-title fw-semibold mb-4">결재 현황</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">제목</h6>
+                        </th>
+                        
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">현황</h6>
+                        </th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="business, status: ${business.getContent()}">
+                        <td class="border-bottom-0">
+                            <a th:href="'/business/situationInfo/' + ${business.no}"><h6 class="fw-semibold mb-1" th:text="${business.businessTitle}"></h6></a>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-1" th:text="${business.approval}"></h6>
+                        </td>
+                        
+                      </tr> 
+                    </tbody>
+                  </table>
+                  
                 </div>
-                <ul class="timeline-widget mb-0 position-relative mb-n5">
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">09:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">Payment received from John Doe of $385.90</div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">10:00 am</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-info flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">New sale recorded <a
-                        href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
-                    </div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">Payment was made of $64.95 to Michael</div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">New sale recorded <a
-                        href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
-                    </div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-danger flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">New arrival recorded 
-                    </div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">Payment Done</div>
-                  </li>
-                </ul>
               </div>
             </div>
+            
+            
           </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
+          
+          
+          <div class="col-lg-7 d-flex align-items-stretch">
             <div class="card w-100">
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold mb-4">공지 사항</h5>
@@ -234,30 +168,35 @@
                           <h6 class="fw-semibold mb-0">작성자</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">등록일</h6>
+                          <h6 class="fw-semibold mb-0">작성일</h6>
                         </th>
                         
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+                      <tr th:each="board, status:${boards.getContent()}">
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                            <span class="fw-normal">Web Designer</span>                          
+							<a th:href="'/boards/boardInfo/' + ${board.no}">
+                            	<h6 class="fw-semibold mb-1" th:text="${board.title}">제목</h6>
+							</a> 
+						</td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1" th:text="${board.user.name}">내용</h6>                    
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Elite Admin</p>
+                          <div class="d-flex align-items-center gap-2">
+                            <h6 class="fw-semibold mb-1 " th:text="${#temporals.format(board.regdate, 'yyyy-MM-dd')}">Elite Admin</h6>
+                          </div>
                         </td>
-                        
-                        
                       </tr> 
-                                         
                     </tbody>
                   </table>
+                  
                 </div>
               </div>
             </div>
+            
+            
           </div>
         </div>
         
@@ -266,5 +205,52 @@
 
 <th:block layout:fragment="script">
 	<script th:src="@{/libs/apexcharts/dist/apexcharts.min.js}"></script>
+	<script th:inline="javascript">
+		
+function replaceText() {
+      const elements = document.getElementsByTagName('h6');
+      for (let i = 0; i < elements.length; i++) {
+        let text = elements[i].innerText;
+        if (text.includes('RETURN')) {
+          elements[i].innerText = text.replace('RETURN', '반려');
+        }
+        if (text.includes('RECOGNITION')) {
+          elements[i].innerText = text.replace('RECOGNITION', '승인완료');
+        }
+        if (text.includes('STAND_BY')) {
+          elements[i].innerText = text.replace('STAND_BY', '승인대기');
+        }
+        if (text.includes('HOLIDAY')) {
+          elements[i].innerText = text.replace('HOLIDAY', '휴가');
+        }
+        if (text.includes('ANNUAL_LEAVE')) {
+          elements[i].innerText = text.replace('ANNUAL_LEAVE', '연차');
+        }
+        if (text.includes('SICK_LEAVE')) {
+          elements[i].innerText = text.replace('SICK_LEAVE', '병가');
+        }
+        if (text.includes('BUSINESS_TRIP')) {
+          elements[i].innerText = text.replace('BUSINESS_TRIP', '출장');
+        }
+      }
+    }
+
+    replaceText();
+		
+		function page(page){
+			//입력한 값을 전부 가지고 온다.
+			var searchDateType = $("#searchDateType").val();
+			var searchsearchApproval = $("#searchApproval").val();
+			var searchBy = $("#searchBy").val();
+			var searchQuery = $("#searchQuery").val();
+			
+			//주소 이동
+			location.href = "/business/situation/" + page 
+											+ "?searchDateType=" + searchDateType
+											+ "&searchsearchApproval=" + searchApproval
+											+ "&searchBy=" + searchBy
+											+ "&searchQuery=" + searchQuery;
+		}
+	</script>
 </th:block>
 </html>

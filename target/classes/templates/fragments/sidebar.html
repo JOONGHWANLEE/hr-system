@@ -44,7 +44,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/business/situation" sec:authorize="isAuthenticated()" aria-expanded="false">
+              <a class="sidebar-link" href="/business/situation" sec:authorize="hasAnyAuthority('ROLE_USER')" aria-expanded="false">
                 <span>
                   <i class="ti ti-alert-circle"></i>
                 </span>
@@ -59,14 +59,14 @@
                 <span class="hide-menu">결재 승인</span>
               </a>
             </li>
-            <li class="sidebar-item">
+            <!--<li class="sidebar-item">
               <a class="sidebar-link" href="/calendar/main" aria-expanded="false">
                 <span>
                   <i class="ti ti-cards"></i>
                 </span>
                 <span class="hide-menu">캘린더</span>
               </a>
-            </li>
+            </li>-->
             <li class="sidebar-item">
               <a class="sidebar-link" href="/boards/main" aria-expanded="false">
                 <span>

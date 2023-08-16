@@ -26,7 +26,7 @@
                           <h6 class="fw-semibold mb-0">작성자</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">작성일자</h6>
+                          <h6 class="fw-semibold mb-0">작성일</h6>
                         </th>
                         
                       </tr>
@@ -36,7 +36,7 @@
                         <td class="border-bottom-0"><h6 class="fw-semibold mb-0" th:text="${board.no}"></h6></td>
                         <td class="border-bottom-0">
 							<a th:href="'/boards/boardInfo/' + ${board.no}">
-                            <h6 class="fw-semibold mb-1" th:text="${board.title}">제목</h6>
+                            	<h6 class="fw-semibold mb-1" th:text="${board.title}">제목</h6>
 							</a>
                         </td>
                         <td class="border-bottom-0">
