@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+</head>
+
+<div class="container-fluid" layout:fragment="content" style="max-width: 1440px;">
+	
+	<div class="col-lg-12 d-flex align-items-stretch" style="margin-top:10px">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4">결재 현황</h5>
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">번호</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">제목</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">구분</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">시작일자</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">종료일자</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">신청일</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">현황</h6>
+                        </th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="business, status: ${business.getContent()}">
+						
+                        <td class="border-bottom-0"><h6 th:text="${business.no}" class="fw-semibold mb-0"></h6></td>
+                        <td class="border-bottom-0">
+                            <a th:href="'/business/situationInfo/' + ${business.no}"><h6 class="fw-semibold mb-1" th:text="${business.businessTitle}"></h6></a>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-1" th:text="${business.division}"></h6>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-1" th:text="${#temporals.format(business.start, 'yyyy-MM-dd')}"></h6>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-1" th:text="${#temporals.format(business.end, 'yyyy-MM-dd')}"></h6>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-1" th:text="${#temporals.format(business.reportingDate, 'yyyy-MM-dd')}"></h6>
+                          <h6 class="fw-semibold mb-1" th:text="${#temporals.format(business.reportingDate, 'HH:mm')}"></h6>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-1" th:text="${business.approval}"></h6>
+                        </td>
+                        
+                      </tr> 
+                      
+                    </tbody>
+                  </table>
+	
+					<nav style="margin-top:15px"
+						th:with="start=${(business.number / maxPage) * maxPage + 1},
+								 end=(${(business.totalPages == 0)? 1 : (start + (maxPage - 1) < business.totalPages ? start + (maxPage - 1) : business.totalPages)})"
+						aria-label="...">
+							<ul class="pagination d-flex justify-content-center">
+								<li class="page-item" th:classappend="${business.first} ? 'disabled'">
+									<a class="page-link" th:onclick="'javascript:page('+ ${business.number - 1} +')'">이전</a>
+								</li>
+								<li class="page-item" th:each="page: ${#numbers.sequence(start, end)}"
+									th:classappend="${business.number eq page - 1} ? 'active' : ''">
+									<a class="page-link" th:inline="text" th:onclick="'javascript:page('+ ${page - 1} +')'">
+										[[${page}]]
+									</a>
+								</li>
+								<li class="page-item" th:classappend="${business.last} ? 'disabled'">
+									<a class="page-link" th:onclick="'javascript:page('+ ${business.number + 1} +')'">다음</a>
+								</li>
+							</ul>
+						</nav>
+                
+              </div>
+            </div>
+          </div>
+	
+</div>
+
+
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		
+function replaceText() {
+      const elements = document.getElementsByTagName('h6');
+      for (let i = 0; i < elements.length; i++) {
+        let text = elements[i].innerText;
+        if (text.includes('RETURN')) {
+          elements[i].innerText = text.replace('RETURN', '반려');
+        }
+        if (text.includes('RECOGNITION')) {
+          elements[i].innerText = text.replace('RECOGNITION', '승인완료');
+        }
+        if (text.includes('STAND_BY')) {
+          elements[i].innerText = text.replace('STAND_BY', '승인대기');
+        }
+        if (text.includes('HOLIDAY')) {
+          elements[i].innerText = text.replace('HOLIDAY', '휴가');
+        }
+        if (text.includes('ANNUAL_LEAVE')) {
+          elements[i].innerText = text.replace('ANNUAL_LEAVE', '연차');
+        }
+        if (text.includes('SICK_LEAVE')) {
+          elements[i].innerText = text.replace('SICK_LEAVE', '병가');
+        }
+        if (text.includes('BUSINESS_TRIP')) {
+          elements[i].innerText = text.replace('BUSINESS_TRIP', '출장');
+        }
+      }
+    }
+
+    replaceText();
+		
+		function page(page){
+			//입력한 값을 전부 가지고 온다.
+			var searchDateType = $("#searchDateType").val();
+			var searchsearchApproval = $("#searchApproval").val();
+			var searchBy = $("#searchBy").val();
+			var searchQuery = $("#searchQuery").val();
+			
+			//주소 이동
+			location.href = "/business/situation/" + page 
+											+ "?searchDateType=" + searchDateType
+											+ "&searchsearchApproval=" + searchApproval
+											+ "&searchBy=" + searchBy
+											+ "&searchQuery=" + searchQuery;
+		}
+	</script>
+</th:block>
+
+
+
+</html>

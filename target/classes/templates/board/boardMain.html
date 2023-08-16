@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div class="container-fluid" layout:fragment="content">
+			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+				<a href="/boards/write" class="btn btn-outline-primary m-1">공지사항 작성하기</a>
+			</div>
+        <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4">공지 사항</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">번호</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">제목</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">작성자</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">작성일자</h6>
+                        </th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="board, status:${boards.getContent()}">
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0" th:text="${board.no}"></h6></td>
+                        <td class="border-bottom-0">
+							<a th:href="'/boards/boardInfo/' + ${board.no}">
+                            <h6 class="fw-semibold mb-1" th:text="${board.title}">제목</h6>
+							</a>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-1" th:text="${board.user.name}">내용</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <h6 class="fw-semibold mb-1 " th:text="${#temporals.format(board.regdate, 'yyyy-MM-dd HH:mm:ss')}">Elite Admin</h6>
+                          </div>
+                        </td>
+                        
+                      </tr> 
+                                          
+                    </tbody>
+                  </table>
+                  <nav style="margin-top:15px"
+						th:with="start=${(boards.number / maxPage) * maxPage + 1},
+								 end=(${(boards.totalPages == 0)? 1 : (start + (maxPage - 1) < boards.totalPages ? start + (maxPage - 1) : boards.totalPages)})"
+						aria-label="...">
+							<ul class="pagination d-flex justify-content-center">
+								<li class="page-item" th:classappend="${boards.first} ? 'disabled'">
+									<a class="page-link" th:onclick="'javascript:page('+ ${boards.number - 1} +')'">이전</a>
+								</li>
+								<li class="page-item" th:each="page: ${#numbers.sequence(start, end)}"
+									th:classappend="${boards.number eq page - 1} ? 'active' : ''">
+									<a class="page-link" th:inline="text" th:onclick="'javascript:page('+ ${page - 1} +')'">
+										[[${page}]]
+									</a>
+								</li>
+								<li class="page-item" th:classappend="${boards.last} ? 'disabled'">
+									<a class="page-link" th:onclick="'javascript:page('+ ${boards.number + 1} +')'">다음</a>
+								</li>
+							</ul>
+						</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+</div>
+
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		
+		function page(page){
+			//입력한 값을 전부 가지고 온다.
+			var searchDateType = $("#searchDateType").val();
+			var searchBy = $("#searchBy").val();
+			var searchQuery = $("#searchQuery").val();
+			
+			//주소 이동
+			location.href = "/boards/main/" + page 
+											+ "?searchDateType=" + searchDateType
+											+ "&searchBy=" + searchBy
+											+ "&searchQuery=" + searchQuery;
+		}
+	</script>
+</th:block>
+
+</html>

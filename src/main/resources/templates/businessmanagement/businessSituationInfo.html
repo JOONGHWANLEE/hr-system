@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<head>
+	<meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+</head>
+
+<div class="container-fluid" layout:fragment="content">
+	<div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title mb-4">
+                            
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="tab-content ml-1" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-5 col-5">
+                                                <label style="font-weight:bold;">신청 번호</label>
+                                                <h6 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px;"
+                                                th:text="${business.no}"></h6>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-5">
+                                                <label style="font-weight:bold;">신청자</label>
+                                                <h6 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px;"
+                                                th:text="${business.user.name}"></h6>
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-5 col-5">
+                                                <label style="font-weight:bold;">구 분</label>
+                                                <h6 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px;"
+                                                th:text="${business.division}"></h6>
+                                            </div>
+                                            
+                                            <th:block th:if="${#strings.equals(business.division, 'BUSINESS_TRIP')}">
+                                            	<div class="col-sm-6 col-md-6 col-5">
+                                                	<label style="font-weight:bold;">출장지</label>
+                                                	<h6 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px;"
+                                                th:text="${business.businessArea}"></h6>
+                                            	</div>
+                                            </th:block>
+                                        </div>
+                                        <hr />
+                                        
+                                        
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-5 col-5">
+                                                <label style="font-weight:bold;">시작 일자</label>
+                                                <h5 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px; font-size:0.875rem;"
+                                                th:text="${business.start}"></h6>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-5">
+                                                <label style="font-weight:bold;">종료 일자</label>
+                                                <h5 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px; font-size:0.875rem;"
+                                                th:text="${business.end}"></h6>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row" style="height:150px">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">신청 사유</label>
+                                                <h6 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px;"
+                                                th:text="${business.businessReason}"></h6>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <div class="row" style="margin-top:20px">
+											<th:block th:if="${#strings.equals(business.approval, 'RECOGNITION')}">
+                                            <div class="col-sm-6 col-md-5 col-5">
+                                                <label style="font-weight:bold;">승인자</label>
+                                                <h6 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px;"
+                                                th:text="${business.approvalNo}"></h6>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-5">
+                                                <label style="font-weight:bold;">승인 일자</label>
+                                                <h4 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px; font-size:0.875rem;"
+                                                th:text="${business.approvalDate}"></h6>
+                                            </div>
+                                            </th:block>
+                                        </div>
+                                        
+                                        <div class="row" style="margin-top:20px">
+											<th:block th:if="${#strings.equals(business.approval, 'RETURN')}">
+                                            <div class="col-sm-6 col-md-5 col-5">
+                                                <label style="font-weight:bold;">반려 승인자</label>
+                                                <h6 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px;"
+                                                th:text="${business.approvalNo}"></h6>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-5">
+                                                <label style="font-weight:bold;">반려 일자</label>
+                                                <h4 class="fw-semibold" style="margin-top:20px; margin-bottom:-8.5px; margin-left:10px; font-size:0.875rem;"
+                                                th:text="${business.approvalDate}"></h6>
+                                            </div>
+                                            </th:block>
+                                        </div>
+                                        
+
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		function replaceText() {
+      const elements = document.getElementsByTagName('h6');
+      for (let i = 0; i < elements.length; i++) {
+        let text = elements[i].innerText;
+        if (text.includes('HOLIDAY')) {
+          elements[i].innerText = text.replace('HOLIDAY', '휴가');
+        }
+        if (text.includes('ANNUAL_LEAVE')) {
+          elements[i].innerText = text.replace('ANNUAL_LEAVE', '연차');
+        }
+        if (text.includes('SICK_LEAVE')) {
+          elements[i].innerText = text.replace('SICK_LEAVE', '병가');
+        }
+        if (text.includes('BUSINESS_TRIP')) {
+          elements[i].innerText = text.replace('BUSINESS_TRIP', '출장');
+        }
+      }
+    }
+
+    replaceText();
+    
+    function formatDates() {
+      const elements = document.getElementsByTagName('h5');
+      for (let i = 0; i < elements.length; i++) {
+        let text = elements[i].innerText;
+        const date = new Date(text);
+        const formattedDate = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
+        elements[i].innerText = formattedDate;
+      }
+    }
+
+    formatDates();
+    
+    function formatDatesAndTime() {
+      const elements = document.getElementsByTagName('h4');
+      for (let i = 0; i < elements.length; i++) {
+        let text = elements[i].innerText;
+        const date = new Date(text);
+        const formattedDate = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
+        const formattedTime = `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+        elements[i].innerText = `${formattedDate} ${formattedTime}`;
+      }
+    }
+
+    formatDatesAndTime();
+		
+	</script>
+</th:block>
+
+
+
+
+
+</html>

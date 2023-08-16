@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div class="container-fluid" layout:fragment="content" style="max-width: 1440px;">
+        <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4">직원 관리</h5>
+                <div  class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">사번</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">이름</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">핸드폰번호</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">부서</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">직급</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0"></h6>
+                        </th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody th:each="user, status: ${users.getContent()}">
+                      <tr>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0" th:text="${user.no}">1</h6></td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1" th:text="${user.name}"></h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1" th:text="${user.phone}"></h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1" th:text="${user.dept}"></h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1" th:text="${user.position}"></h6>
+                        </td>
+                        <td class="border-bottom-0">
+							<!--<button type="button" class="btn btn-primary"
+									th:value="${user.no}" onclick="deleteUser(this.value)">삭제하기</button>-->
+                            <a th:href="'/users/userinfo/' + ${user.no}" class="btn btn-outline-primary m-1" >상세 정보</a>
+                        </td>
+                      </tr> 
+                                        
+                    </tbody>
+                  </table>
+                  <nav style="margin-top:15px"
+						th:with="start=${(users.number / maxPage) * maxPage + 1},
+								 end=(${(users.totalPages == 0)? 1 : (start + (maxPage - 1) < users.totalPages ? start + (maxPage - 1) : users.totalPages)})"
+						aria-label="...">
+							<ul class="pagination d-flex justify-content-center">
+								<li class="page-item" th:classappend="${users.first} ? 'disabled'">
+									<a class="page-link" th:onclick="'javascript:page('+ ${users.number - 1} +')'">이전</a>
+								</li>
+								<li class="page-item" th:each="page: ${#numbers.sequence(start, end)}"
+									th:classappend="${users.number eq page - 1} ? 'active' : ''">
+									<a class="page-link" th:inline="text" th:onclick="'javascript:page('+ ${page - 1} +')'">
+										[[${page}]]
+									</a>
+								</li>
+								<li class="page-item" th:classappend="${users.last} ? 'disabled'">
+									<a class="page-link" th:onclick="'javascript:page('+ ${users.number + 1} +')'">다음</a>
+								</li>
+							</ul>
+						</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+</div>
+
+
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		
+	</script>
+</th:block>
+</html>
