@@ -8,10 +8,10 @@
 <div class="container-fluid" layout:fragment="content">
 	<div class="container-fluid">
             <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">공지사항 작성</h5>
+              <h5 class="card-title fw-semibold mb-4">공지사항 수정</h5>
               <div class="card">
                 <div class="card-body">
-                  <form role="form" action="/boards/write" method="post" enctype="multipart/form-data"
+                  <form role="form" th:action="@{/boards/boardInfoForm/ + ${boardId}}" method="post" enctype="multipart/form-data"
                   th:object="${boardDto}">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">제목</label>
@@ -24,9 +24,9 @@
                       style="height:150px; text-align:start; vertical-align: top;"
                       th:field="*{content}">
                     </div>
-                    <button type="submit" class="btn btn-primary">작성하기</button>
+                    <button type="submit" class="btn btn-primary">수정하기</button>
                     
-                    
+                    <input type="hidden" th:field="*{no}">
                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
                   </form>
                 </div>

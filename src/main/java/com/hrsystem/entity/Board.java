@@ -50,10 +50,10 @@ public class Board {
 	private LocalDateTime regdate;
 	
 	
-	public void updateBoard(BoardDto boardDto) {
+	public void updateBoard(BoardDto boardDto, LocalDateTime now) {
 		this.title = boardDto.getTitle();
 		this.content = boardDto.getContent();
-		this.regdate = boardDto.getRegdate();
+		this.regdate = now;
 	}
 	
 //	public Board(LocalDateTime regdate, User user, BoardDto boardDto) {

@@ -56,8 +56,8 @@ public class BoardService {
 	public Long updateBoard(BoardDto boardDto) {
 		Board board = boardRepository.findById(boardDto.getNo())
 				.orElseThrow(EntityNotFoundException::new);
-		
-		board.updateBoard(boardDto);
+		LocalDateTime now = LocalDateTime.now();
+		board.updateBoard(boardDto, now);
 		
 		return board.getNo();
 	}
