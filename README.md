@@ -18,8 +18,13 @@
 
 🧰개발 스텍
 LANGUAGE : JAVA17, HTML, CSS, JavaScript, BootStrap
+
 FRAMEWORK : Spring Boot, Spring MVC
+
 DB : MySQL
+
 SECURITY : Spring Security
+
 BULID : Maven
+
 ORM : Spring JPA
