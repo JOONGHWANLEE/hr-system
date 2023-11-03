@@ -14,3 +14,12 @@
 
 4. 직원은 결재신청을 통해서 출장, 연차, 휴가, 병가를 신청하고 신청현황 및 이력을 확인할 수 있습니다.
 
+#사용기술스택
+
+🧰개발 스텍
+LANGUAGE : JAVA17, HTML, CSS, JavaScript, BootStrap
+FRAMEWORK : Spring Boot, Spring MVC
+DB : MySQL
+SECURITY : Spring Security
+BULID : Maven
+ORM : Spring JPA
